@@ -111,13 +111,10 @@ class TestTransformerTraining(unittest.TestCase):
         corpus = ["These are the tokens that will end up in our vocabulary"]
         vocab = Vocabulary(corpus)
         vocab = Vocabulary(corpus)
-        print('token2index:', vocab.token2index)
-        print('index2token:', vocab.index2token)
-        print('vocab size:', len(vocab.token2index))
-        print('special tokens:', {'BOS': vocab.BOS, 'EOS': vocab.EOS, 'PAD': vocab.PAD})
         vocab_size = len(
             list(vocab.token2index.keys())
         )  # 14 tokens including bos, eos and pad
+        print('vocab_size',vocab_size)
         valid_tokens = list(vocab.token2index.keys())[3:]
         corpus += [
             " ".join(choices(valid_tokens, k=n_tokens_in_batch))
