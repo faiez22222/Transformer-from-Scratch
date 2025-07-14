@@ -110,6 +110,7 @@ class TestTransformerTraining(unittest.TestCase):
         # Note: the original paper uses byte pair encodings, we simply take each word to be a token.
         corpus = ["These are the tokens that will end up in our vocabulary"]
         vocab = Vocabulary(corpus)
+        print('vocab',vocab)
         vocab_size = len(
             list(vocab.token2index.keys())
         )  # 14 tokens including bos, eos and pad
@@ -121,7 +122,6 @@ class TestTransformerTraining(unittest.TestCase):
 
         # Construct src-tgt aligned input batches (note: the original paper uses dynamic batching based on tokens)
         corpus = [{"src": sent, "tgt": sent} for sent in corpus]
-        print('corpus',corpus)
         batches, masks = construct_batches(
             corpus,
             vocab,
