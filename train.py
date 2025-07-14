@@ -110,7 +110,7 @@ class TestTransformerTraining(unittest.TestCase):
         # Note: the original paper uses byte pair encodings, we simply take each word to be a token.
         corpus = ["These are the tokens that will end up in our vocabulary"]
         vocab = Vocabulary(corpus)
-        print('vocab',vocab)
+        print('vocab attributes:', dir(vocab))
         vocab_size = len(
             list(vocab.token2index.keys())
         )  # 14 tokens including bos, eos and pad
