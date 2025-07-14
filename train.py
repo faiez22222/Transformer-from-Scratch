@@ -39,6 +39,10 @@ def train(
         for i, (src_batch, src_mask, tgt_batch, tgt_mask) in enumerate(
             zip(batches["src"], masks["src"], batches["tgt"], masks["tgt"])
         ):
+            print('src_batch',src_batch)
+            print('src_mask',src_mask)
+            print('tgt_batch',tgt_batch)
+            print('tgt_mask',tgt_mask)
             encoder_output = transformer.encoder(src_batch, src_padding_mask=src_mask)  # type: ignore
 
             # Perform one decoder forward pass to obtain *all* next-token predictions for every index i given its
