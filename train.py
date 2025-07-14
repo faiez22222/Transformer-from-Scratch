@@ -115,7 +115,6 @@ class TestTransformerTraining(unittest.TestCase):
             list(vocab.token2index.keys())
         )  # 14 tokens including bos, eos and pad
         valid_tokens = list(vocab.token2index.keys())[3:]
-        print('valid_tokens',valid_tokens)
         corpus += [
             " ".join(choices(valid_tokens, k=n_tokens_in_batch))
             for _ in range(synthetic_corpus_size)
@@ -131,6 +130,7 @@ class TestTransformerTraining(unittest.TestCase):
             tgt_lang_key="tgt",
             device=device,
         )
+        print('batches',batches)
 
         # Initialize transformer
         transformer = Transformer(
