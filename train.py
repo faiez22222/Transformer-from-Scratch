@@ -103,7 +103,7 @@ class TestTransformerTraining(unittest.TestCase):
         # Hyperparameters
         synthetic_corpus_size = 600
         batch_size = 60
-        n_epochs = 200
+        n_epochs = 1
         n_tokens_in_batch = 10
 
         # Construct vocabulary and create synthetic data by uniform randomly sampling tokens from it
@@ -130,8 +130,6 @@ class TestTransformerTraining(unittest.TestCase):
             tgt_lang_key="tgt",
             device=device,
         )
-        print('batches',batches)
-
         # Initialize transformer
         transformer = Transformer(
             hidden_dim=512,

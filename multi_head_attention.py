@@ -58,8 +58,12 @@ class MultiHeadAttention(nn.Module):
 
         if encoder_hidden_states is None:
             q, k, v = self._self_attention_projection(x)
+            print('q1',q.shape)
         else:
             q, k, v = self._cross_attention_projection(encoder_hidden_states, x)
+            print('q2',q)
+
+
 
         # Swap dimensions to (batch_size, n_heads, seq_len, qkv_dim). Required for the matrix multiplication below
         q = q.permute(0, 2, 1, 3)
