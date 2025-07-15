@@ -61,7 +61,7 @@ class MultiHeadAttention(nn.Module):
             print('q1',q.shape)
         else:
             q, k, v = self._cross_attention_projection(encoder_hidden_states, x)
-            print('q2',q)
+            print('q2',q.shape)
 
 
 
