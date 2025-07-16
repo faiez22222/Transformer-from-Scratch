@@ -169,7 +169,7 @@ class MultiHeadAttention(nn.Module):
         # Compute attention logits. Dot product between each query and key vector, through one matrix multiplication.
         # Results in un-normalized attention scores for each position's query vector to each position's key vector
         # Result is (batch_size, num_heads, seq_length, seq_length)
-        print('k'.shape)
+        print('k',k.shape)
         print('torch.transpose(k, -2, -1)',torch.transpose(k, -2, -1))
         attn_logits = torch.matmul(q, torch.transpose(k, -2, -1),)
 
