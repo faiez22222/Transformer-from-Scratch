@@ -21,6 +21,7 @@ class SinusoidEncoding(torch.nn.Module):
         # Create matrix of [SeqLen, HiddenDim] representing the positional encoding for max_len inputs
         pos_embed = torch.zeros(max_len, hidden_dim)
         position = torch.arange(0, max_len, dtype=torch.float).unsqueeze(1)
+        print('position',position)
         div_term = torch.exp(
             torch.arange(0, hidden_dim, 2).float() * (-math.log(10000.0) / hidden_dim)
         )
