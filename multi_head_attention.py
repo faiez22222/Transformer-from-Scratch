@@ -181,6 +181,7 @@ class MultiHeadAttention(nn.Module):
 
         # Transform logits to attention probability distribution (one distribution per non-masked token index)
         attention = F.softmax(attn_logits, dim=-1)
+        print('q',q)
         print('attention',attention.shape)
 
         # Weighted sum of value vectors for each input token using attention scores -> new contextualized representation
